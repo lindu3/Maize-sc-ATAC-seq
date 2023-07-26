@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 input_path = './'
-output_path = './scATAC/B73_tissue_Frg/'
+output_path = './data/B73_tissue_Frg/'
 if not os.path.exists(output_path):
    os.makedirs(output_path)
     
