@@ -1,4 +1,4 @@
-## scripts to analysis scATAC-seq 
+## scripts for scATAC-seq data analysis 
 
 library(ArchR)
 
