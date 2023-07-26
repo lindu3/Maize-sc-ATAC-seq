@@ -1,3 +1,4 @@
+# Single cell ATAC-seq data downloaded from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178
 import pandas as pd
 
 scatac_file = pd.read_csv('../GSE155178_ACR_x_cell.binary.sparse.txt.gz',sep='\t',header = None)
