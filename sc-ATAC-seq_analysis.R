@@ -16,7 +16,7 @@ B73.v4_genomeAnnotation
 
 library(ape)
 library(GenomicRanges)
-gff3 = read.gff('./Desktop/B73.AGPv4.pub.gff3', na.strings = c(".", "?"), GFF3 = TRUE)
+gff3 = read.gff('./data/B73.AGPv4.pub.gff3', na.strings = c(".", "?"), GFF3 = TRUE)
 
 
 
@@ -57,7 +57,7 @@ B73.v4_geneAnnotation 	 	= createGeneAnnotation(TSS=tss.gr,exons=exons.gr,genes=
 
 # Single cell ATAC-seq data downloaded from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178
 
-scatac_tissue_data_path = './Desktop/scATAC/B73_tissue_Frg/'
+scatac_tissue_data_path = './data/B73_tissue_Frg/'
 tissue_file_list = list.files(scatac_tissue_data_path)
 for (tissue in tissue_file_list){
   print(tissue)
@@ -80,16 +80,16 @@ addArchRThreads(threads = 6)
 
 # Load the input data
 
-all_atac_data_input = c('./Desktop/scATAC/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_axillarybud1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_axillarybud2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_crownroot1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_crownroot2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Leaf2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Root1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Root2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Tassel_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_B73Mo17_real_frg-Reformat.tsv.gz')
+all_atac_data_input = c('./data/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_axillarybud1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_axillarybud2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_crownroot1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_crownroot2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Leaf2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Root1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Root2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Tassel_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_B73Mo17_real_frg-Reformat.tsv.gz')
 all_atac_data_input_name = c('Ear','Axillarybud1','Axillarybud2','crownroot1','crownroot2','Leaf','Root1','Root2','Tassel','B73Mo17')
 
 
@@ -153,7 +153,7 @@ table(B73.v4.all_tissue_proj$Sample)
 
 ## create the ArrowFiles
 ear_B73.v4.ArrowFiles.min <- createArrowFiles(
-  inputFiles = './Desktop/scATAC/B73_tissue_reformat/GSE155178_Ear_real_frg-Reformat.tsv.gz',
+  inputFiles = './data/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
   sampleNames = "Ear_500",
   genomeAnnotation = B73.v4_genomeAnnotation,
   geneAnnotation = B73.v4_geneAnnotation,
@@ -270,7 +270,7 @@ ear_markersGS_30 <- getMarkerFeatures(
 ear_markerList <- getMarkers(ear_markersGS_30, cutOff = "FDR <= 0.05 & Log2FC >= 1")
 ear_markerList$C2
 ## write the marker genes
-write.csv(ear_markerList$C7,file="./Desktop/scATAC/ear_marker_genes/C7.csv")
+write.csv(ear_markerList$C7,file="./output/ear_marker_genes/C7.csv")
 ## annotation by cluster specific genes
 
 markerGenes  <- c(
@@ -341,8 +341,6 @@ macs2_test <- addReproduciblePeakSet(
 ## get single cell ATAC-seq peak data
 macs2_test
 getPeakSet(macs2_test)
-
-saveArchRProject(ArchRProj = macs2_test, outputDirectory = "../goqmr/Desktop/scATAC/Save_macs2_test_earpeakcalling", load = FALSE)
 
 ear_proj_peakcalling <- addPeakMatrix(macs2_test)
 
@@ -464,7 +462,7 @@ ggDo
 # to the integration workflow
 # ear_single cell RNA-seq data is from doi:10.1016/j.devcel.2020.12.015 in Seurat object format.
 
-ear_RNA_rdata <- load("./Desktop/scRNA_data/ENAD51_seurat_obj_LinDu.RData")
+ear_RNA_rdata <- load("./scRNA_data/ENAD51_seurat_obj_LinDu.RData")
 ear_RNA_rdata = embl_ebi.srt
 
 integrate_RNA_ATAC <- addGeneIntegrationMatrix(
