@@ -16,7 +16,7 @@ B73.v4_genomeAnnotation
 
 library(ape)
 library(GenomicRanges)
-gff3 = read.gff('./Desktop/B73.AGPv4.pub.gff3', na.strings = c(".", "?"), GFF3 = TRUE)
+gff3 = read.gff('./data/B73.AGPv4.pub.gff3', na.strings = c(".", "?"), GFF3 = TRUE)
 
 
 
@@ -57,7 +57,7 @@ B73.v4_geneAnnotation 	 	= createGeneAnnotation(TSS=tss.gr,exons=exons.gr,genes=
 
 # Single cell ATAC-seq data downloaded from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178
 
-scatac_tissue_data_path = './Desktop/scATAC/B73_tissue_Frg/'
+scatac_tissue_data_path = './data/B73_tissue_Frg/'
 tissue_file_list = list.files(scatac_tissue_data_path)
 for (tissue in tissue_file_list){
   print(tissue)
@@ -80,16 +80,16 @@ addArchRThreads(threads = 6)
 
 # Load the input data
 
-all_atac_data_input = c('./Desktop/scATAC/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_axillarybud1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_axillarybud2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_crownroot1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_crownroot2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Leaf2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Root1_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Root2_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_Tassel_real_frg-Reformat.tsv.gz',
-                        './Desktop/scATAC/B73_tissue_Frg/GSE155178_B73Mo17_real_frg-Reformat.tsv.gz')
+all_atac_data_input = c('./data/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_axillarybud1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_axillarybud2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_crownroot1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_crownroot2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Leaf2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Root1_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Root2_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_Tassel_real_frg-Reformat.tsv.gz',
+                        './data/B73_tissue_Frg/GSE155178_B73Mo17_real_frg-Reformat.tsv.gz')
 all_atac_data_input_name = c('Ear','Axillarybud1','Axillarybud2','crownroot1','crownroot2','Leaf','Root1','Root2','Tassel','B73Mo17')
 
 
