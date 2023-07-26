@@ -5,4 +5,8 @@ Python script to reformt and split the all tissue single cell ATAC-seq data from
 
 Run this script first.
 ## sc-ATAC-seq_analysis.R
-R script for single cell ATAC-seq data processing and figure plotting 
+R script for single cell ATAC-seq data processing and figure plotting. 
+## all_tissue_sc-atac-seq.R
+R script for all tissue data from (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178) processing and figure plotting.
+## ear_tissue_sc-atac-seq.R
+R script for ear tissue data from (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178) processing and figure plotting.
