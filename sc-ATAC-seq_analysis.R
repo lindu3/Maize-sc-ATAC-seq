@@ -460,7 +460,10 @@ ggDo
 ##   Integrate sc RNA-seq data   ###
 ####################################
 
-# ArchR  accepts both RangedSummarizedExperiment object and unmodified Seurat objects as input to the integration workflow
+# ArchR  accepts both RangedSummarizedExperiment object and unmodified Seurat objects as input 
+# to the integration workflow
+# ear_single cell RNA-seq data is from doi:10.1016/j.devcel.2020.12.015 in Seurat object format.
+
 ear_RNA_rdata <- load("./Desktop/scRNA_data/ENAD51_seurat_obj_LinDu.RData")
 ear_RNA_rdata = embl_ebi.srt
 
