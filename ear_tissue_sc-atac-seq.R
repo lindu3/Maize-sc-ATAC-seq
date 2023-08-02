@@ -73,6 +73,7 @@ for (tissue in tissue_file_list){
 
 
 ## create the ArrowFiles
+## details about the ArrowFiles: https://www.archrproject.com/bookdown/what-is-an-arrow-file-archrproject.html
 ear_B73.v4.ArrowFiles.min <- createArrowFiles(
   inputFiles = './data/B73_tissue_Frg/GSE155178_Ear_real_frg-Reformat.tsv.gz',
   sampleNames = "Ear_500",
@@ -94,6 +95,7 @@ doubScores <- addDoubletScores(
 )
 
 ## creat the ArchR project
+## details about the ArchR project: https://www.archrproject.com/bookdown/what-is-an-arrow-file-archrproject.html
 proj <- ArchRProject(
   ArrowFiles = ear_B73.v4.ArrowFiles.min, 
   outputDirectory = "B73",
