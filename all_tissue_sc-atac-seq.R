@@ -94,6 +94,7 @@ all_atac_data_input_name = c('Ear','Axillarybud1','Axillarybud2','crownroot1','c
 
 
 ## create the ArrowFiles
+## details about the ArrowFiles: https://www.archrproject.com/bookdown/what-is-an-arrow-file-archrproject.html
 B73.v4.ArrowFiles.all_tissue <- createArrowFiles(
   inputFiles = all_atac_data_input,
   sampleNames = all_atac_data_input_name,
@@ -114,6 +115,7 @@ doubScores <- addDoubletScores(
   LSIMethod = 1
 )
 ## creat the ArchR project
+## details about the ArchR project: https://www.archrproject.com/bookdown/what-is-an-arrow-file-archrproject.html
 B73.v4.all_tissue_proj <- ArchRProject(
   ArrowFiles = B73.v4.ArrowFiles.all_tissue, 
   outputDirectory = "B73_all_tissue",
