@@ -1,4 +1,4 @@
-## scripts for scATAC-seq data analysis
+## scripts to analysis scATAC-seq 
 
 library(ArchR)
 
@@ -253,17 +253,17 @@ cluster2_proj <- addGroupCoverages(ArchRProj = Seraut_cluster_proj_nOutlier30, g
 ## call ATAC-seq peaks by MACS2
 pathToMacs2 <- findMacs2()
 
-macs2_test <- addReproduciblePeakSet(
+macs2_peaks <- addReproduciblePeakSet(
   ArchRProj = cluster2_proj, 
   groupBy = "Clusters", 
   pathToMacs2 = pathToMacs2,
   genomeSize = 2134373047 # B73.v4
 )
 ## get single cell ATAC-seq peak data
-macs2_test
-getPeakSet(macs2_test)
+macs2_peaks
+getPeakSet(macs2_peaks)
 
-ear_proj_peakcalling <- addPeakMatrix(macs2_test)
+ear_proj_peakcalling <- addPeakMatrix(macs2_peaks)
 
 getAvailableMatrices(ear_proj_peakcalling)
 ear_proj_peakcalling
