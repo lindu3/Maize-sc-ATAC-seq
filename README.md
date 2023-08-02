@@ -9,3 +9,5 @@ Run this script first.
 R script for all tissue data from (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178) processing and figure plotting.
 ## ear_tissue_sc-atac-seq.R
 R script for ear tissue data from (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155178) processing and figure plotting.
+## Figures.pptx
+Figures plotted by sc-atac-seq.R
